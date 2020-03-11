@@ -6,6 +6,7 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
+  
   base64textString: string;
 
   selectFile(event) {
@@ -14,16 +15,14 @@ export class AppComponent {
 
     if (files && file) {
       var reader = new FileReader();
-
       reader.onload = this.handleFile.bind(this);
-
       reader.readAsBinaryString(file);
     }
   }
 
   handleFile(event) {
     var binaryString = event.target.result;
-    this.base64textString = 'data:image/jpeg;base64,' + btoa(binaryString);
+    this.base64textString = "data:image/jpeg;base64," + btoa(binaryString);
     console.log(btoa(binaryString));
   }
 }
